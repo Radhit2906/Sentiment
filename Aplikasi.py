@@ -20,7 +20,7 @@ vocab_size = 450
 
 # Load the dataset
 try:
-    data = pd.read_csv('D:\Semester 4\Machine Learning\Sentiment An\sampilng.csv')  # Replace with actual file path
+    data = pd.read_csv('sampilng.csv')  # Replace with actual file path
     st.write("Data loaded successfully.")
 except Exception as e:
     st.error(f"Error loading data: {e}")
