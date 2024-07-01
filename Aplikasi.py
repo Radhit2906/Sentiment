@@ -6,24 +6,14 @@ from tensorflow.keras.preprocessing.text import Tokenizer
 from tensorflow.keras.preprocessing.sequence import pad_sequences
 from tensorflow.keras.layers import SpatialDropout1D
 
-# Load the model
-try:
-    model = load_model('lstm_model.h5', custom_objects={'SpatialDropout1D': SpatialDropout1D})
-    st.write("Model loaded successfully.")
-except Exception as e:
-    st.error(f"Error loading model: {e}")
-
+model = load_model('lstm_model.h5', custom_objects={'SpatialDropout1D': SpatialDropout1D})
 # Define tokenizer parameters (must be the same as used during training)
 max_len = 150
 oov_tok = "<OOV>"
 vocab_size = 450
 
 # Load the dataset
-try:
-    data = pd.read_csv('sampilng.csv')  # Replace with actual file path
-    st.write("Data loaded successfully.")
-except Exception as e:
-    st.error(f"Error loading data: {e}")
+data = pd.read_csv('sampilng.csv')  # Replace with actual file path
 
 # Dummy data to fit tokenizer (the same data used during training)
 X_train = data['tweet']
